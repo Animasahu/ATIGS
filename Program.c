@@ -8,6 +8,7 @@ char* Test_Parameter_String;
 int Test_Parameter_Int;
 char* out_file_path;
 void ReadInputFile();
+int CheckFileForValidity();
 void DispError(int ErrorCode)
 {
     switch(ErrorCode)
@@ -22,6 +23,9 @@ void DispError(int ErrorCode)
 
         case 2:
             printf("\nInput Filepath is missing or doesn't exist");
+            break;
+        case 3:
+            printf("\nError in File Format");
             break;
     }
 }
@@ -54,7 +58,15 @@ int main(int argcount, char* args[])
 
         in_file_path = args[2];
         ReadInputFile();
-        printf("\n%s", Test_Parameter_Name);
-        printf("\n%s", Test_Parameter_Type);
-        printf("\n%s", Test_Parameter_String);
+        if(CheckFileForValidity() == 1)
+        {
+         DispError(3);
+         exit(0);
+        }
+        if(CheckFileForValidity() == 0)
+        {
+         printf("\n%s", Test_Parameter_Name);
+         printf("\n%s", Test_Parameter_Type);
+         printf("\n%s", Test_Parameter_String);
+        }
 }

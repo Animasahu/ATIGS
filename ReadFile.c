@@ -44,6 +44,7 @@ void ReadInputFile()
     else
     {
      printf("Error In Input File Format");
+     exit(0);
     }
   }
 }
