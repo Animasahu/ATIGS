@@ -7,7 +7,7 @@ extern char* in_file_path;
 extern char* Test_Parameter_Name;
 extern char* Test_Parameter_Type;
 extern char* Test_Parameter_String;
-extern int Test_Parameter_Int;
+
 void ReadInputFile()
 {
  char data[MAX_LINES][MAX_LEN];

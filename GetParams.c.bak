@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+extern char* Test_Parameter_Name;
+extern char* Test_Parameter_Type;
+extern char* Test_Parameter_String;
+
+void GetValues()
+{
+ char* Name;
+ char* Type;
+ char* String;
+
+ for(int i = 0 ; i < strlen(Test_Parameter_Name) ; i++)
+ {
+  if(i > 2)
+  {
+   Name[i-3] = Test_Parameter_Name[i];
+  }
+ }
+ printf("\n%s", Name);
+
+ for(int j = 0 ; j < strlen(Test_Parameter_Type) ; j++)
+ {
+  if(j > 2)
+  {
+   Type[j-3] = Test_Parameter_Type[j];
+  }
+ }
+ printf("\n%s", Type);
+
+ for(int k = 0 ; k < strlen(Test_Parameter_String) ; k++)
+ {
+  if(k > 2)
+  {
+   String[k-3] = Test_Parameter_String[k];
+  }
+ }
+ printf("\n%s", String);
+}

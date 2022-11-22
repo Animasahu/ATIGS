@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
 char* in_file_path;
 char* Test_Parameter_Name;
@@ -9,6 +10,7 @@ int Test_Parameter_Int;
 char* out_file_path;
 void ReadInputFile();
 int CheckFileForValidity();
+
 void DispError(int ErrorCode)
 {
     switch(ErrorCode)
@@ -29,7 +31,6 @@ void DispError(int ErrorCode)
             break;
     }
 }
-
 
 int main(int argcount, char* args[])
 {
@@ -65,8 +66,12 @@ int main(int argcount, char* args[])
         }
         if(CheckFileForValidity() == 0)
         {
+         
+        }
+        
          printf("\n%s", Test_Parameter_Name);
          printf("\n%s", Test_Parameter_Type);
          printf("\n%s", Test_Parameter_String);
-        }
+
+         return 0;
 }
