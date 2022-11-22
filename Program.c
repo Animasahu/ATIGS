@@ -2,6 +2,11 @@
 #include<stdlib.h>
 
 char* in_file_path;
+char* Test_Parameter_Name;
+char* Test_Parameter_Type;
+char* Test_Parameter_String;
+int Test_Parameter_Int;
+char* out_file_path;
 void ReadInputFile();
 void DispError(int ErrorCode)
 {
