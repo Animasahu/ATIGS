@@ -13,15 +13,15 @@ void DispError(int ErrorCode)
     switch(ErrorCode)
     {
         case 0:
-            printf("Please enter the arguments Properly");
+            printf("\nPlease enter the arguments Properly");
             break;
         
         case 1:
-            printf("Only non-negative and non-zero INTEGER Arguments are accepted for number of OUTPUT Files");
+            printf("\nOnly non-negative and non-zero INTEGER Arguments are accepted for number of OUTPUT Files");
             break;
 
         case 2:
-            printf("Input Filepath is missing or doesn't exist");
+            printf("\nInput Filepath is missing or doesn't exist");
             break;
     }
 }
@@ -54,4 +54,7 @@ int main(int argcount, char* args[])
 
         in_file_path = args[2];
         ReadInputFile();
+        printf("\n%s", Test_Parameter_Name);
+        printf("\n%s", Test_Parameter_Type);
+        printf("\n%s", Test_Parameter_String);
 }

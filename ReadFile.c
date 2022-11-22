@@ -15,7 +15,7 @@ void ReadInputFile()
  file = fopen(in_file_path, "r");
  if (file == NULL)
   {
-    printf("Error opening file.\n");
+    printf("\nError opening file.\n");
     exit(0);
   }
   int line = 0;
@@ -29,6 +29,21 @@ void ReadInputFile()
   fclose(file);  
   for (int i = 0; i < line; i++)
   {
-    printf("%s", data[i]);
+    if(i == 0)
+    {
+     Test_Parameter_Name = data[i];
+    }
+    else if(i == 1)
+    {
+     Test_Parameter_Type = data[i];
+    }
+    else if(i == 2)
+    {
+     Test_Parameter_String = data[i];
+    }
+    else
+    {
+     printf("Error In Input File Format");
+    }
   }
 }
