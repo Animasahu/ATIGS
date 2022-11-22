@@ -1,0 +1,3 @@
+a) Name
+b) Type
+c) Range

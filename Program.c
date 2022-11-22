@@ -1,7 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<string.h>
 
+char* in_file_path;
+void ReadInputFile();
 void DispError(int ErrorCode)
 {
     switch(ErrorCode)
@@ -46,5 +47,6 @@ int main(int argcount, char* args[])
             exit(0);
         }
 
-        
+        in_file_path = args[2];
+        ReadInputFile();
 }
