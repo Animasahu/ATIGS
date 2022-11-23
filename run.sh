@@ -8,6 +8,8 @@ echo "ENTER THE INPUT FILE PATH"
 
 read PATH
 
+mkdir -p Output
+
 gcc ./*.c -o Program
 
 ./Program $NUMBER $PATH
