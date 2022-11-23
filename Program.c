@@ -7,20 +7,24 @@
 #include<stdbool.h>
 
 char * in_file_path;
+char* input_file_path;
 char * Test_Parameter_Name;
 char * Test_Parameter_Type;
 char * Test_Parameter_String;
+char* Parameter_Name;
 int Test_Parameter_Int;
 int n_out;
 float Test_Parameter_Float;
 bool Test_Parameter_Boolean;
-char * out_file_path;
+char* out_file_path;
 void ReadInputFile();
 int CheckFileForValidity();
 void CompareInt();
 void CompareFloat();
-void PrintString();
-void PrintBool();
+void CompareString();
+void CompareBool();
+void ReadSettingsFile();
+
 
 void DispError(int ErrorCode) {
   switch (ErrorCode) {
@@ -37,6 +41,9 @@ void DispError(int ErrorCode) {
     break;
   case 3:
     printf("\nError in File Format");
+    break;
+  case 4:
+    printf("\nSettings File Not Found");
     break;
   }
 }
@@ -55,32 +62,46 @@ int main(int argcount, char * args[]) {
   }
 
   FILE * in_file;
+  FILE* settings_file;
   in_file = fopen(args[2], "r");
+  settings_file = fopen("Settings.config", "r");
+
 
   if (in_file == NULL) {
     DispError(2);
     exit(0);
   }
 
+  if (settings_file == NULL) {
+    DispError(4);
+    exit(0);
+  }
+
   in_file_path = args[2];
+  input_file_path = args[2];
   ReadInputFile();
   if (CheckFileForValidity() == 1) {
     DispError(3);
     exit(0);
   }
+  ;
   if (CheckFileForValidity() == 0) {
     char* dummy;
 
   dummy = "string";
   if (strstr(Test_Parameter_Type, dummy) != NULL) {
     Test_Parameter_String = Test_Parameter_String;
-    
+    Parameter_Name = Test_Parameter_Name;
+    ReadSettingsFile();
+    CompareString();
   }
 
   dummy = "int";
   if (strstr(Test_Parameter_Type, dummy) != NULL) {
     Test_Parameter_Int = atoi(Test_Parameter_String);
-    
+    Parameter_Name = Test_Parameter_Name;
+    ReadSettingsFile();
+    CompareInt();
   }
 
   dummy = "bool";
@@ -98,7 +119,9 @@ int main(int argcount, char * args[]) {
         Test_Parameter_Boolean = false;
         
       }
-      
+      Parameter_Name = Test_Parameter_Name;
+    ReadSettingsFile();
+    CompareBool();
     }
     
   }
@@ -108,6 +131,9 @@ int main(int argcount, char * args[]) {
     Test_Parameter_Float = atof(Test_Parameter_String);
     
     dummy = NULL;
+    Parameter_Name = Test_Parameter_Name;
+    ReadSettingsFile();
+    CompareFloat();
   }
   }
 

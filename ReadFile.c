@@ -7,6 +7,7 @@
 
 extern char * in_file_path;
 extern char * Test_Parameter_Name;
+extern char* Parameter_Name;
 extern char * Test_Parameter_Type;
 extern char * Test_Parameter_String;
 
@@ -28,6 +29,7 @@ void ReadInputFile() {
   for (int i = 0; i < line; i++) {
     if (i == 0) {
       Test_Parameter_Name = data[i];
+      Parameter_Name = data[i];
     } else if (i == 1) {
       Test_Parameter_Type = data[i];
     } else if (i == 2) {
