@@ -8,7 +8,8 @@ echo "ENTER THE INPUT FILE PATH"
 
 read PATH
 
+# IF YOU FACE ERRORS WHILE RUNNING THIS SCRIPT PLEASE ADD A # BEFORE THE FOLLOWING LINE "/usr/bin/cc ./*.c -o ./Program" AND TRY RUNNING THIS SCRIPT AGAIN
 
-gcc ./*.c -o Program
+/usr/bin/cc ./*.c -o ./Program
 
 ./Program $NUMBER $PATH

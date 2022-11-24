@@ -21,7 +21,7 @@ void WriteFile() {
     FILE* file;
     file = fopen(out_file_path, "w");
  
-     fprintf(file, "%s", Test_Parameter_String);
+     fprintf(file, "%s\t%s", Test_Parameter_Name, Test_Parameter_String);
 
     fclose(file);
 }

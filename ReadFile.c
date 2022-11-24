@@ -20,6 +20,9 @@ void ReadInputFile() {
     exit(0);
   }
   int line = 0;
+
+  int line_counter = 0;
+
   while (!feof(file) && !ferror(file)) {
     if (fgets(data[line], MAX_LEN, file) != NULL) {
       line++;
@@ -27,16 +30,18 @@ void ReadInputFile() {
   }
   fclose(file);
   for (int i = 0; i < line; i++) {
-    if (i == 0) {
+    if(data[i][0] != '#') {
+    if (line_counter == 0) {
       Test_Parameter_Name = data[i];
-      Parameter_Name = data[i];
-    } else if (i == 1) {
+    } else if (line_counter == 1) {
       Test_Parameter_Type = data[i];
-    } else if (i == 2) {
+    } else if (line_counter == 2) {
       Test_Parameter_String = data[i];
-    } else {
+    } /*else {
       printf("Error In Input File Format");
       exit(0);
+    }*/
+    line_counter++;
     }
   }
-}
+  }

@@ -84,7 +84,7 @@ int main(int argcount, char * args[]) {
     DispError(3);
     exit(0);
   }
-  ;
+  
   if (CheckFileForValidity() == 0) {
     char* dummy;
 
